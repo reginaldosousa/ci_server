@@ -65,6 +65,27 @@ Vagrant::Config.run do |config|
     chef.chef_server_url = "https://api.opscode.com/organizations/plataforma_isp"
     chef.validation_key_path = "/Users/reginaldo/.chef/plataforma_isp-validator.pem"
     chef.validation_client_name = "plataforma_isp-validator"
+    
+    chef.add_recipe("apt")
+    chef.add_recipe("git::server")
+    chef.add_recipe("git::default")
+    chef.add_recipe("apache2")
+    chef.add_recipe("openssl")
+    chef.add_recipe("runit")
+    chef.add_recipe("")
+    chef.add_recipe("")
+    chef.add_recipe("")
+    # chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    #     chef.add_recipe("")
+    
   end
   #
   # If you're using the Opscode platform, your validator client is
