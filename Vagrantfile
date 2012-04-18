@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "lucid32"
+  config.vm.box = "licid32"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -61,7 +61,7 @@ Vagrant::Config.run do |config|
   # HTTP instead of HTTPS depending on your configuration. Also change the
   # validation key to validation.pem.
   #
-  config.vm.provision :chef_server do |chef|
+  config.vm.provision :chef_client do |chef|
     chef.chef_server_url = "https://api.opscode.com/organizations/plataforma_isp"
     chef.validation_key_path = "/Users/reginaldo/.chef/plataforma_isp-validator.pem"
     chef.validation_client_name = "plataforma_isp-validator"
@@ -72,20 +72,9 @@ Vagrant::Config.run do |config|
     chef.add_recipe("apache2")
     chef.add_recipe("openssl")
     chef.add_recipe("runit")
-    chef.add_recipe("")
-    chef.add_recipe("")
-    chef.add_recipe("")
-    # chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    #     chef.add_recipe("")
-    
+    chef.add_recipe("java")
+    chef.add_recipe("jenkins")
+    chef.add_recipe("cma_isp_ci")    
   end
   #
   # If you're using the Opscode platform, your validator client is
